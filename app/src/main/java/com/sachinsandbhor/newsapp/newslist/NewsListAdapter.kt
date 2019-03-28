@@ -1,5 +1,6 @@
 package com.sachinsandbhor.newsapp.newslist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,10 @@ import kotlinx.android.synthetic.main.news_item.view.*
 class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
 
     var newsArticles = mutableListOf<Article>()
+    companion object {
+        private val TAG = NewsListAdapter::class.java.simpleName
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false)
@@ -25,10 +30,11 @@ class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
         holder.bind(newsArticles[position])
     }
 
-    fun updateList(articlesList: List<Article>) {
-        if (articlesList.isNotEmpty()) {
+
+    fun updateList(list: List<Article>) {
+        if (list.isNotEmpty()) {
             newsArticles.clear()
-            newsArticles.addAll(articlesList)
+            newsArticles.addAll(list)
             notifyDataSetChanged()
         }
     }

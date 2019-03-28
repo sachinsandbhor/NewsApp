@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private fun initUi() {
         newsListAdapter = NewsListAdapter()
         news_list.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        news_list.adapter = NewsListAdapter()
+        news_list.setHasFixedSize(true)
+        news_list.adapter = newsListAdapter
         newsListViewModel.fetchNews()
     }
 
