@@ -1,21 +1,18 @@
 package com.sachinsandbhor.newsapp.newslist
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sachinsandbhor.newsapp.R
 import com.sachinsandbhor.newsapp.entities.Article
+import com.sachinsandbhor.newsapp.utils.DateUtil.Companion.formatDate
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.news_item.view.*
 
 class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
 
     var newsArticles = mutableListOf<Article>()
-    companion object {
-        private val TAG = NewsListAdapter::class.java.simpleName
-    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false)
@@ -42,7 +39,12 @@ class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(articleItem: Article) {
             with(itemView) {
-                header.text = articleItem.description
+                title.text = articleItem.title
+                Picasso.get().load(articleItem.urlToImage).into(newsimage)
+                description.text = articleItem.content
+                val publishDate = formatDate(articleItem.publishedAt!!)
+                System.out.println("DAte"+publishDate)
+                datetextview.text = publishDate
             }
         }
     }
