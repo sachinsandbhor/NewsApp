@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">newsapi.org</domain>
+        <pin-set>
+            <pin digest="SHA-256">yt4CKQurqpgR8jLYJMvItV4WO3XjCWG/O6FhBxByjk8=</pin>
+            <pin digest="SHA-256">WGJkyYjx1QMdMe0UqlyOKXtydPDVrk7sl2fV+nNm1r4=</pin>
+        </pin-set>
+        <trustkit-config enforcePinning="true" />
+    </domain-config>
+</network-security-config>

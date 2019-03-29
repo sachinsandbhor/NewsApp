@@ -6,9 +6,9 @@ import java.util.*
 class DateUtil {
 
     companion object {
-        val DATE_PATTERN = "yyyy-MM-dd"
-        val IST_TIME_ZONE = "IST"
-        val LEADING_ZERO_TEMPLATE = "%02d"
+        private const val DATE_PATTERN = "yyyy-MM-dd"
+        private const val IST_TIME_ZONE = "IST"
+        private const val LEADING_ZERO_TEMPLATE = "%02d"
 
         fun formatDate(originalDate: String): String {
 

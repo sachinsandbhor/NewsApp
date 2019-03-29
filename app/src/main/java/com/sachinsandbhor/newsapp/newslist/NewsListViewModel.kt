@@ -6,17 +6,14 @@ import com.sachinsandbhor.domain.common.Mapper
 import com.sachinsandbhor.domain.entities.NewsSourceEntity
 import com.sachinsandbhor.domain.usecases.GetNewsUsecase
 import com.sachinsandbhor.newsapp.common.BaseViewModel
-import com.sachinsandbhor.newsapp.entities.Data
-import com.sachinsandbhor.newsapp.entities.Error
-import com.sachinsandbhor.newsapp.entities.News
-import com.sachinsandbhor.newsapp.entities.Status
+import com.sachinsandbhor.newsapp.entities.*
 
 class NewsListViewModel(
     private val getNewsCases: GetNewsUsecase,
     private val mapper: Mapper<NewsSourceEntity, News>
 ) : BaseViewModel() {
     companion object {
-        val TAG = NewsListViewModel::class.java.simpleName
+        val TAG: String = NewsListViewModel::class.java.simpleName
     }
 
     var newsMutableList = MutableLiveData<Data<News>>()

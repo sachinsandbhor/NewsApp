@@ -10,7 +10,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-    android:name=".NewsApp">
+            android:networkSecurityConfig="@xml/network_security_config"
+            android:name=".NewsApp">
         <activity android:name=".newslist.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

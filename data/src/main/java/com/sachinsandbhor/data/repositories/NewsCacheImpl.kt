@@ -15,7 +15,7 @@ class NewsCacheImpl(private val entityToDataMapper: NewsEntityToDataMapper,
     private val dao: ArticlesDao = database.getArticlesDao()
 
     override fun getNews(): Flowable<NewsSourceEntity> {
-        return dao.getAllArticles().map { it-> dataToEntityMapper.mapToEntity(it) }
+        return dao.getAllArticles().map { dataToEntityMapper.mapToEntity(it) }
     }
 
     fun saveArticles(remoteNews: NewsSourceEntity?) {
