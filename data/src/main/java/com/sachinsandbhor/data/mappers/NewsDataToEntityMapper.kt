@@ -27,6 +27,6 @@ class NewsDataToEntityMapper {
     )
 
     fun mapListArticlesToEntity(articles: List<ArticleData>): List<ArticleEntity> =
-        articles.map { mapArticleToEntity(it) } ?: emptyList()
+        articles.map { mapArticleToEntity(it) }
 
 }

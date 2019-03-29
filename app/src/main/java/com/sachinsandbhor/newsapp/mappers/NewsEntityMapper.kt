@@ -10,7 +10,7 @@ class NewsEntityMapper: Mapper<NewsSourceEntity, News>() {
     override fun mapFrom(from: NewsSourceEntity): News =
         News(
             articles = mapListArticlesToPresentation(from.articles),
-            status = from?.status
+            status = from.status
         )
 
     private fun mapListArticlesToPresentation(articles: List<ArticleEntity>): List<PresentationArticle> =

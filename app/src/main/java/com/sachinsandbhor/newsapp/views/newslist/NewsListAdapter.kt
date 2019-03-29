@@ -1,4 +1,4 @@
-package com.sachinsandbhor.newsapp.newslist
+package com.sachinsandbhor.newsapp.views.newslist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import com.sachinsandbhor.newsapp.utils.DateUtil.Companion.formatDate
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.news_item.view.*
 
-class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
+class NewsListAdapter(val onClickListener: (article: Article, view: View) -> Unit) : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
 
     var newsArticles = mutableListOf<Article>()
 
@@ -24,7 +24,9 @@ class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.bind(newsArticles[position])
+        val item = newsArticles[position]
+        holder.bind(item)
+        holder.itemView.setOnClickListener{ onClickListener(item, holder.itemView) }
     }
 
 
@@ -39,12 +41,10 @@ class NewsListAdapter : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(articleItem: Article) {
             with(itemView) {
-                title.text = articleItem.title
-                Picasso.get().load(articleItem.urlToImage).into(newsimage)
-                description.text = articleItem.content
+                news_description.text = articleItem.title
+                Picasso.get().load(articleItem.urlToImage).placeholder(R.mipmap.ic_launcher).into(news_thumbnail)
                 val publishDate = formatDate(articleItem.publishedAt!!)
-                System.out.println("DAte"+publishDate)
-                datetextview.text = publishDate
+                news_date.text = publishDate
             }
         }
     }

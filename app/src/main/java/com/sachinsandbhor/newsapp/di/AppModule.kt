@@ -13,7 +13,7 @@ import com.sachinsandbhor.domain.usecases.GetNewsUsecase
 import com.sachinsandbhor.newsapp.BuildConfig
 import com.sachinsandbhor.newsapp.common.AsyncFlowableTransformer
 import com.sachinsandbhor.newsapp.mappers.NewsEntityMapper
-import com.sachinsandbhor.newsapp.newslist.NewsListViewModel
+import com.sachinsandbhor.newsapp.views.newslist.NewsListViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
