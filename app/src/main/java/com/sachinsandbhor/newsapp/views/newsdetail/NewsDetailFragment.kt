@@ -1,4 +1,4 @@
-package com.sachinsandbhor.newsapp.newsdetail
+package com.sachinsandbhor.newsapp.views.newsdetail
 
 
 import android.os.Bundle
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.sachinsandbhor.newsapp.databinding.FragmentNewsDetailBinding
 import com.sachinsandbhor.newsapp.entities.Article
-import kotlinx.android.synthetic.main.fragment_news_detail.*
 
 
 class NewsDetailFragment : Fragment() {

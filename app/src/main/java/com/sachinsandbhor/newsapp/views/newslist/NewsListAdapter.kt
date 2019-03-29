@@ -1,4 +1,4 @@
-package com.sachinsandbhor.newsapp.newslist
+package com.sachinsandbhor.newsapp.views.newslist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -41,10 +41,10 @@ class NewsListAdapter(val onClickListener: (article: Article, view: View) -> Uni
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(articleItem: Article) {
             with(itemView) {
-                description.text = articleItem.title
-                Picasso.get().load(articleItem.urlToImage).placeholder(R.mipmap.ic_launcher).into(newsimage)
+                news_description.text = articleItem.title
+                Picasso.get().load(articleItem.urlToImage).placeholder(R.mipmap.ic_launcher).into(news_thumbnail)
                 val publishDate = formatDate(articleItem.publishedAt!!)
-                datetextview.text = publishDate
+                news_date.text = publishDate
             }
         }
     }

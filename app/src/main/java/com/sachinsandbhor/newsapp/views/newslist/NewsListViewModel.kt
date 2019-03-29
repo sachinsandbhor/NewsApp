@@ -1,4 +1,4 @@
-package com.sachinsandbhor.newsapp.newslist
+package com.sachinsandbhor.newsapp.views.newslist
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.sachinsandbhor.newsapp.newslist
+package com.sachinsandbhor.newsapp.views.newslist
 
 
 import android.os.Bundle
@@ -15,10 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sachinsandbhor.newsapp.R
 import com.sachinsandbhor.newsapp.entities.Article
 import com.sachinsandbhor.newsapp.entities.Status
-import com.sachinsandbhor.newsapp.newsdetail.NewsDetailFragment
 import kotlinx.android.synthetic.main.fragment_news_list.*
 import kotlinx.android.synthetic.main.fragment_news_list.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import androidx.recyclerview.widget.DividerItemDecoration
+
+
 
 class NewsListFragment : Fragment() {
 
@@ -61,9 +63,15 @@ class NewsListFragment : Fragment() {
             val action = NewsListFragmentDirections.actionNewsListFragmentToNewsDetailFragment2(article)
             Navigation.findNavController(view).navigate(action)
         }
-        view.news_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        val layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        view.news_list.layoutManager = layoutManager
         view.news_list.setHasFixedSize(true)
         view.news_list.adapter = newsListAdapter
+        val dividerItemDecoration = DividerItemDecoration(
+            context,
+            layoutManager.getOrientation()
+        )
+        view.news_list.addItemDecoration(dividerItemDecoration)
         newsListViewModel.fetchNews()
     }
 
